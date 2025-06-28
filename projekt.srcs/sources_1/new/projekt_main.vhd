@@ -38,9 +38,11 @@ entity projekt_main is
         Encoder_B : in STD_LOGIC;
         Dreset : in STD_LOGIC; 
         Button       : in STD_LOGIC;
+        Button2 : in STD_LOGIC;
         LCD_RS      : out STD_LOGIC;
         LCD_E       : out STD_LOGIC;
         LCD_DB    : out STD_LOGIC_VECTOR (3 DOWNTO 0);
+        LED0_B : OUT STD_LOGIC;
         LEDS : out STD_LOGIC_VECTOR(3 downto 0) );
 end projekt_main;
 
@@ -61,6 +63,7 @@ component lcd_menu is
         change : in STD_LOGIC;
         Dreset       : in  STD_LOGIC;
         Button       : in STD_LOGIC;
+        Button2 : in STD_LOGIC;
         clk  : in  STD_LOGIC;
         LCD_RS      : out STD_LOGIC;
         LCD_E       : out STD_LOGIC;
@@ -74,6 +77,9 @@ signal chg : std_logic;
 begin
     blok1: enkoder port map (clk => clk, Dreset => Dreset, Encoder_A => Encoder_A,
         Encoder_B => Encoder_B,  position => pos, change => chg);
-    blok2 : lcd_menu port map (position => pos, change => chg, Dreset => Dreset, Button => Button,
-        clk => clk, LCD_RS => LCD_RS, LCD_E => LCD_E, LCD_DB => LCD_DB, LEDS => LEDS);
+    blok2 : lcd_menu port map( position => pos, change => chg, Dreset => Dreset, Button => Button, Button2 => Button2,
+            clk => clk, LCD_RS => LCD_RS, LCD_E => LCD_E, LCD_DB => LCD_DB, LEDS => LEDS);
+    --blok2 : lcd_menu port map (position => pos, change => chg, Dreset => Dreset, Button => Button, Button2 => Button2,
+        --clk => clk, LCD_RS => LCD_RS, LCD_E => LCD_E, LCD_DB => LCD_DB, LED0_B => LED0_B, LEDS => LEDS, 
+        --VGA_B => VGA_B, VGA_G => VGA_G, VGA_R => VGA_R, Segment_A => Segment_A, Segment_B => Segment_B, Segment_C => Segment_C);
 end Behavioral;

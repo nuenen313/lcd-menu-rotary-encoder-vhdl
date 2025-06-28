@@ -51,4 +51,7 @@ package lcd_chars is
     constant CHAR_s_male : STD_LOGIC_VECTOR(7 downto 0) := "01110011";
     constant CHAR_w_male : STD_LOGIC_VECTOR(7 downto 0) := "01110111";
     constant CHAR_k_male : STD_LOGIC_VECTOR(7 downto 0) := "01101011";
+    constant CHAR_n_male : STD_LOGIC_VECTOR(7 downto 0) := "01101110";
+    constant CHAR_d_male : STD_LOGIC_VECTOR(7 downto 0) := "01100100";
+    constant CHAR_e_male : STD_LOGIC_VECTOR(7 downto 0) := "01100101";
 end package lcd_chars;
